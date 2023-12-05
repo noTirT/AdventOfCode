@@ -14,6 +14,7 @@ input_lines = read_file_lines("day4/input.txt")
 
 result = 0
 
+# TODO: not finished
 for line in input_lines:
     own_nums, winning_nums = line.split(": ")[1].split(" | ")
 
