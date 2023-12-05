@@ -1,4 +1,4 @@
-def read_file_to_array(file_path):
+def read_file_lines(file_path):
     try:
         with open(file_path, "r") as file:
             lines = file.readlines()
@@ -9,11 +9,10 @@ def read_file_to_array(file_path):
     except FileNotFoundError:
         print(f"Die Datei {file_path} wurde nicht gefunden")
         return []
-
-
+    
 file_path = "input.txt"
 
-input_arr = read_file_to_array(file_path)
+input_arr = read_file_lines(file_path)
 
 test_arr = ["1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"]
 
