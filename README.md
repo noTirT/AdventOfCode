@@ -17,8 +17,22 @@ For each new day create a new Folder like this
 day<day_number>
 ```
 
-Inside this folder there has to be a file ```part1.py``` and ```part2.py```
+The following is the file structure inside that folder
+```bash
+├── input.txt
+├── part1.py
+├── part2.py
+├── test.txt (optional)
+└── task.txt
+```
+### .txt Files
 
-Both of those files have to have a ```solution``` function which does not take any arguments and returns the solution for part 1 of the problem (or part 2 correspondingly)
+* ```input.txt```: contains the puzzle input
+* ```task.txt```: contains the problem definition for that day
+* ```test.txt```: contains the example puzzle input (optional)
 
-No printing of the solution should be handled by the solution-modules itself
+### .py Files
+
+Both Pyhton files have to have a ```solution``` function which returns the result for the corresponding part 1 or 2 of the selected problem.
+
+The modules should not print the solution as that is handled by ```main.py```

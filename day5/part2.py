@@ -1,17 +1,6 @@
 from typing import List, Set
 
-
-def read_file_lines(file_path):
-    try:
-        with open(file_path, "r") as file:
-            lines = file.readlines()
-
-            lines = [line.strip() for line in lines]
-
-            return lines
-    except FileNotFoundError:
-        print(f"Die Datei {file_path} wurde nicht gefunden")
-        return []
+from util import read_file_lines
 
 
 # Represents one specific map
