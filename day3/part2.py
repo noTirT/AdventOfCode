@@ -9,8 +9,10 @@ def read_file_lines(file_path):
     except FileNotFoundError:
         print(f"Die Datei {file_path} wurde nicht gefunden")
         return []
-    
+
+
 input_lines = read_file_lines("day3/input.txt")
+
 
 def get_symbol_locations(input_lines):
     locations = []
@@ -21,8 +23,9 @@ def get_symbol_locations(input_lines):
             if temp_ind == -1:
                 break
             locations.append((row, temp_ind))
-            index = temp_ind +1
+            index = temp_ind + 1
     return locations
+
 
 def search_around_location(location, input_lines):
     row, col = location
@@ -33,14 +36,14 @@ def search_around_location(location, input_lines):
     digit_locations = []
 
     locations_around = [
-        (row + 1, col), # below
-        (row - 1, col), # above
-        (row, col + 1), # right
-        (row, col - 1), # left
-        (row + 1, col + 1), # bottom right
-        (row + 1, col - 1), # bottom left
-        (row - 1, col - 1), # top left
-        (row - 1, col + 1)  # top right
+        (row + 1, col),  # below
+        (row - 1, col),  # above
+        (row, col + 1),  # right
+        (row, col - 1),  # left
+        (row + 1, col + 1),  # bottom right
+        (row + 1, col - 1),  # bottom left
+        (row - 1, col - 1),  # top left
+        (row - 1, col + 1),  # top right
     ]
 
     for loc in locations_around:
@@ -50,6 +53,7 @@ def search_around_location(location, input_lines):
             digit_locations.append(loc)
 
     return eliminate_neighbor_locations(digit_locations)
+
 
 def eliminate_neighbor_locations(locations):
     locations = sorted(locations)
@@ -64,9 +68,10 @@ def eliminate_neighbor_locations(locations):
         index += 1
     return result
 
+
 def search_location(location, input_lines):
     num = []
-    left, right = location[1]-1, location[1]
+    left, right = location[1] - 1, location[1]
 
     while left >= 0:
         curr_char = input_lines[location[0]][left]
@@ -79,21 +84,25 @@ def search_location(location, input_lines):
     while right < len(input_lines[location[0]]):
         curr_char = input_lines[location[0]][right]
         if curr_char.isdigit():
-            num.append(curr_char)        
+            num.append(curr_char)
             right += 1
         else:
             break
 
     return int("".join(num))
 
-result = 0
 
-symbol_locations = get_symbol_locations(input_lines)
+def solution():
+    input_lines = read_file_lines("day3/input.txt")
+    result = 0
 
-for s_location in symbol_locations:
-    around_locations = search_around_location(s_location, input_lines)
-    if len(around_locations) == 2:
-        gear_ratio = search_location(around_locations[0], input_lines) * search_location(around_locations[1], input_lines)
-        result += gear_ratio
+    symbol_locations = get_symbol_locations(input_lines)
 
-print(result)
+    for s_location in symbol_locations:
+        around_locations = search_around_location(s_location, input_lines)
+        if len(around_locations) == 2:
+            gear_ratio = search_location(
+                around_locations[0], input_lines
+            ) * search_location(around_locations[1], input_lines)
+            result += gear_ratio
+    return result

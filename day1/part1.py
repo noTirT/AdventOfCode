@@ -1,4 +1,3 @@
-
 def read_file_lines(file_path):
     try:
         with open(file_path, "r") as file:
@@ -10,13 +9,6 @@ def read_file_lines(file_path):
     except FileNotFoundError:
         print(f"Die Datei {file_path} wurde nicht gefunden")
         return []
-    
-
-file_path = "day1/input.txt"
-
-input_arr = read_file_lines(file_path)
-
-test_arr = ["1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"]
 
 
 def calc_config_sum(input_arr):
@@ -39,4 +31,6 @@ def calc_config_sum(input_arr):
     return sum
 
 
-print(calc_config_sum(input_arr))
+def solution():
+    input_arr = read_file_lines("day1/input.txt")
+    return calc_config_sum(input_arr)

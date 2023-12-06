@@ -9,10 +9,12 @@ def read_file_lines(file_path):
     except FileNotFoundError:
         print(f"Die Datei {file_path} wurde nicht gefunden")
         return []
-    
+
+
 file_path = "day2/input.txt"
 
 input_lines = read_file_lines(file_path)
+
 
 def sum_ids(input_lines):
     sum = 0
@@ -22,6 +24,7 @@ def sum_ids(input_lines):
 
     return sum
 
+
 def calculate_minimum_power(game):
     power = 1
 
@@ -29,6 +32,7 @@ def calculate_minimum_power(game):
         power *= min_val
 
     return power
+
 
 def read_game(line):
     cubes = {}
@@ -41,8 +45,9 @@ def read_game(line):
             values = group.split(" ")
             cubes.setdefault(values[1], 0)
             cubes[values[1]] = max(cubes[values[1]], int(values[0]))
-    return {
-        "id": id,
-        "cubes": cubes
-    }
-print(sum_ids(input_lines))
+    return {"id": id, "cubes": cubes}
+
+
+def solution():
+    input_lines = read_file_lines("day2/input.txt")
+    return sum_ids(input_lines)

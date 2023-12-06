@@ -9,22 +9,7 @@ def read_file_lines(file_path):
     except FileNotFoundError:
         print(f"Die Datei {file_path} wurde nicht gefunden")
         return []
-    
-file_path = "input.txt"
 
-input_arr = read_file_lines(file_path)
-
-test_arr = ["1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"]
-
-test_2 = [
-    "two1nine",
-    "eightwothree",
-    "abcone2threexyz",
-    "xtwone3four",
-    "4nineeightseven2",
-    "zoneight234",
-    "7pqrstsixteen",
-]
 
 str_nums = {
     "one": "1",
@@ -112,4 +97,6 @@ def get_written_digits_locations(line):
     return digits_locations
 
 
-print(calc_config_sum(input_arr))
+def solution():
+    input_arr = read_file_lines("day1/input.txt")
+    return calc_config_sum(input_arr)
