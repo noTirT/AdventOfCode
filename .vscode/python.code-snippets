@@ -1,0 +1,13 @@
+{
+    "Unittest for AOC Day": {
+        "prefix": "test_day",
+        "body": [
+        "def test_day_$1(self):",
+        "   a1, a2 = run_problem($1)",
+        "   s1, s2 = self.read_solution($1)",
+        "   self.assertEqual(a1, s1)",
+        "   self.assertEqual(a2, s2)",
+        ],
+        "description": "Create python unittest for a specific aoc day"
+    }
+}

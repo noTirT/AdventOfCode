@@ -21,7 +21,7 @@ def get_problem_number() -> int:
     return problem
 
 
-def __run_problem(problem: int) -> Tuple[Answer, Answer]:
+def run_problem(problem: int) -> Tuple[Answer, Answer]:
     module_name = f"day{problem}"
     part_1 = module_name + ".part1"
     part_2 = module_name + ".part2"
@@ -49,7 +49,7 @@ def __display_answer(answers: Tuple[Answer, Answer]):
 
 def main():
     problem: int = get_problem_number()
-    answers: Tuple[Answer, Answer] = __run_problem(problem)
+    answers: Tuple[Answer, Answer] = run_problem(problem)
     __display_answer(answers)
 
 
