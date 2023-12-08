@@ -88,3 +88,9 @@ Add the ```-v``` flag to see more output
 ```bash
 python -m unittest -v
 ```
+
+## Workflows
+
+### Build
+
+Every push or pull request to the ```main``` branch triggers the ```build``` workflow which runs a linter and all unittests in the ```test.py``` file
