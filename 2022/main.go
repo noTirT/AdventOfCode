@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/noTirT/AdventOfCode/2022/day1"
+	"github.com/noTirT/AdventOfCode/2022/day2"
 )
 
 func GetProblemNumber() int8 {
@@ -43,6 +44,7 @@ func main() {
 
 	functions := [][]func() int{
 		{day1.Solution01, day1.Solution02},
+		{day2.Solution01, day2.Solution02},
 	}
 
 	currFunctions := functions[problemNumber-1]
