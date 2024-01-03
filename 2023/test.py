@@ -61,6 +61,24 @@ class TestCalculation(unittest.TestCase):
         self.assertEqual(a1, s1)
         self.assertEqual(a2, s2)
 
+    def test_day_9(self):
+        a1, a2 = run_problem(9)
+        s1, s2 = self.read_solution(9)
+        self.assertEqual(a1, s1)
+        self.assertEqual(a2, s2)
+
+    def test_day_10(self):
+        a1, a2 = run_problem(10)
+        s1, s2 = self.read_solution(10)
+        self.assertEqual(a1, s1)
+        self.assertEqual(a2, s2)
+
+    def test_day_11(self):
+        a1, a2 = run_problem(11)
+        s1, s2 = self.read_solution(11)
+        self.assertEqual(a1, s1)
+        self.assertEqual(a2, s2)
+
     def read_solution(self, day: int) -> Tuple[int, int]:
         solutions = read_file_lines(f"./day{day}/solutions.txt")
         return int(solutions[0]), int(solutions[1])

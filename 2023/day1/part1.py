@@ -1,6 +1,5 @@
 from util import read_file_lines
 
-
 def calc_config_sum(input_arr):
     sum = 0
     for line in input_arr:
@@ -24,3 +23,5 @@ def calc_config_sum(input_arr):
 def solution():
     input_arr = read_file_lines("day1/input.txt")
     return calc_config_sum(input_arr)
+
+
