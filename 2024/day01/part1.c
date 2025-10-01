@@ -1,4 +1,5 @@
 #define _GNU_SOURCE
+#include "file.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,25 +8,14 @@
 int comp(const void *a, const void *b) { return (*(int *)a - *(int *)b); }
 
 int main(int argc, char *argv[]) {
-  FILE *fptr = fopen("input.txt", "r");
+  int line_count;
+  char **lines = read_file_lines("input.txt", &line_count);
 
-  int cr;
-  size_t lines = -1;
-
-  while ((cr = getc(fptr)) != EOF) {
-    if (cr == '\n') {
-      lines++;
-    }
-  }
-
-  printf("Number of lines: %ld\n", lines);
-  rewind(fptr);
-
-  int left[lines];
-  int right[lines];
+  int left[line_count];
+  int right[line_count];
   size_t n;
 
-  for (size_t i = 0; i < lines; i++) {
+  for (size_t i = 0; i < line_count; i++) {
     left[i] = 0;
     right[i] = 0;
     char *temp = NULL;
@@ -51,7 +41,6 @@ int main(int argc, char *argv[]) {
     }
     free(temp);
   }
-  fclose(fptr);
 
   int n_1 = sizeof(right) / sizeof(right[0]);
   int n_2 = sizeof(left) / sizeof(left[0]);
@@ -61,7 +50,7 @@ int main(int argc, char *argv[]) {
 
   size_t sum = 0;
 
-  for (size_t i = 0; i < lines; i++) {
+  for (size_t i = 0; i < line_count; i++) {
     sum += abs(left[i] - right[i]);
   }
 
