@@ -1,0 +1,91 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++23",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-O3",
+      "-c",
+      "-o",
+      "src/utils.o",
+      "src/utils.cpp"
+    ],
+    "directory": "/home/tom/Code/AdventOfCode/2024-cpp",
+    "file": "/home/tom/Code/AdventOfCode/2024-cpp/src/utils.cpp",
+    "output": "/home/tom/Code/AdventOfCode/2024-cpp/src/utils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++23",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-O3",
+      "src/utils.o",
+      "-o",
+      "bin/day01",
+      "day01/main.cpp"
+    ],
+    "directory": "/home/tom/Code/AdventOfCode/2024-cpp",
+    "file": "/home/tom/Code/AdventOfCode/2024-cpp/day01/main.cpp",
+    "output": "/home/tom/Code/AdventOfCode/2024-cpp/bin/day01"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++23",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-O3",
+      "src/utils.o",
+      "-o",
+      "bin/day02",
+      "day02/main.cpp"
+    ],
+    "directory": "/home/tom/Code/AdventOfCode/2024-cpp",
+    "file": "/home/tom/Code/AdventOfCode/2024-cpp/day02/main.cpp",
+    "output": "/home/tom/Code/AdventOfCode/2024-cpp/bin/day02"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++23",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-O3",
+      "src/utils.o",
+      "-o",
+      "bin/day03",
+      "day03/main.cpp"
+    ],
+    "directory": "/home/tom/Code/AdventOfCode/2024-cpp",
+    "file": "/home/tom/Code/AdventOfCode/2024-cpp/day03/main.cpp",
+    "output": "/home/tom/Code/AdventOfCode/2024-cpp/bin/day03"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++23",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-O3",
+      "src/utils.o",
+      "-o",
+      "bin/day04",
+      "day04/main.cpp"
+    ],
+    "directory": "/home/tom/Code/AdventOfCode/2024-cpp",
+    "file": "/home/tom/Code/AdventOfCode/2024-cpp/day04/main.cpp",
+    "output": "/home/tom/Code/AdventOfCode/2024-cpp/bin/day04"
+  }
+]
