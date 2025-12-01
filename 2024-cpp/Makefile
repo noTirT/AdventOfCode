@@ -1,41 +1,53 @@
 CXX := g++
 CXXFLAGS := -std=c++23 -Wall -Wextra -Iinclude -O3
 
-UTIL_SRCS := $(wildcard src/*.cpp)
-UTIL_OBJS := $(UTIL_SRCS:.cpp=.o)
-
+# 1. Directories
+SRC_DIR := src
+OBJ_DIR := obj
 BIN_DIR := bin
 
-DAYS := $(notdir $(wildcard day*))
+# 2. Find all sources
+# Use sort to avoid duplicates (solves your previous linking error too)
+SRCS := $(sort $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/days/*.cpp))
 
-all: $(DAYS:%=$(BIN_DIR)/%)
+# 3. Auto-generate object paths
+# e.g., src/days/day01.cpp -> obj/days/day01.o
+OBJS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 
-%:
-	@daydir=day$@; \
-	if [ -d $$daydir ]; then \
-		$(MAKE) $(BIN_DIR)/$$daydir; \
-	else \
-		echo "No directory for day $$@"; \
-	fi
+# 4. Target Executable
+TARGET := $(BIN_DIR)/aoc
 
-$(BIN_DIR)/day%: day%/main.cpp $(UTIL_OBJS)
+# --- Rules ---
+
+all: $(TARGET)
+
+# Link
+$(TARGET): $(OBJS)
 	@mkdir -p $(BIN_DIR)
-	@echo "Building $@..."
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	@echo "Linking $@"
+	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "Done."
 
-src/%.o: src/%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+# Compile
+# This magic rule creates the specific sub-directories inside obj/ automatically
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(dir $@)
+	@echo "Compiling $<..."
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run%: $(BIN_DIR)/day%
-	@echo "Running $< ..."
-	@./$< $(filter-out $@,$(MAKECMDGOALS))
+# Run Helpers
+run: $(TARGET)
+ifdef day
+	@./$(TARGET) $(day)
+else
+	@echo "Usage: make run day=XX"
+endif
+
+run%: $(TARGET)
+	@./$(TARGET) $*
 
 clean:
-	rm -rf $(BIN_DIR) src/*.o
+	@echo "Cleaning up..."
+	@rm -rf $(OBJ_DIR) $(BIN_DIR)
 
-rebuild:
-	make clean
-	bear -- make all
-
-.PHONY: all clean
+.PHONY: all run clean
