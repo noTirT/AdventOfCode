@@ -33,6 +33,10 @@ cat <<EOT > "$CPP_PATH"
 
 class Day${PADDED_DAY} : public AoCDay {
 public:
+    void setup() override {
+
+    }
+
     Answer part1() override {
         // lines is available as std::vector<std::string>
         return "TODO";

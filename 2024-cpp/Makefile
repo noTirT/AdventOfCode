@@ -43,7 +43,12 @@ else
 	@echo "Usage: make run day=XX"
 endif
 
+test%: $(TARGET)
+	@echo "Running Day $* (Test Input)..."
+	@./$(TARGET) $* --test
+
 run%: $(TARGET)
+	@echo "Running Day $* ..."
 	@./$(TARGET) $*
 
 clean:

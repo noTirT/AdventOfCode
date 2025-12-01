@@ -1,2 +1,4 @@
 2024-cpp/.cache/
+**/*.o
 2024-cpp/bin/
+2024-cpp/inputs/
