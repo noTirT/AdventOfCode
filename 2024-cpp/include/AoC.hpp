@@ -22,6 +22,7 @@ public:
                  : std::format("inputs/day{:02}.txt", day_number);
 
     lines = utils::read_lines(filename);
+    is_test_run = test_run;
 
     std::cout << "--- Running setup ... ---" << std::endl;
 
@@ -35,6 +36,7 @@ public:
 
 protected:
   std::vector<std::string> lines;
+  bool is_test_run;
 
 private:
   void print_time(auto start, auto end, const std::string &label) {
